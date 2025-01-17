@@ -18,4 +18,22 @@ export function validacoesFilme(filme){
 
     if(filme.disponivel == undefined)
         throw new Error ("Disponibilidade obrigatória");
+
+
 }
+
+export function validacoesFilmeId(id){
+    if(isNaN(id)){
+        throw new Error ('Parâmetro ID incorreto.');
+    }
+    
+}
+
+export function validacaoUnica(filmes){
+    if (filmes.length == 0)
+        throw new Error ('Filme não encontrado.');
+}
+
+
+
+

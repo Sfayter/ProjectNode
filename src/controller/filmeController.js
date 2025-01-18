@@ -2,16 +2,17 @@ import {Router} from "express";
 import salvarFilmeService from "../service/filme/salvarFilmeService.js";
 import consultarFilmeService from "../service/filme/consultarFilmeService.js";
 import consultarFilmeServiceId from "../service/filme/consultarFilmeServiceId.js";
-import { consultarFilmesAtivo } from "../repository/filmeRepository.js";
+import consultarAtivosService from "../service/filme/consultarFilmeAtivosService.js";
+import deletarFilmeId from "../service/filme/deleteFilmeService.js";
 
 
 const servidor = Router();
 
 servidor.post("/filme", async(req, resp) => {
     try{
-    let filmeObj = req.body;
+    let filme = req.body;
 
-    let id = await salvarFilmeService(filmeObj);
+    let id = await salvarFilmeService(filme);
 
     resp.send({
         id: id
@@ -56,7 +57,18 @@ servidor.get("/filme/consultaid", async (req, resp) => {
 servidor.get("/filme/ativos", async (req, resp) => {
 
     let ativos = req.query.ativos;
-    consultarFilmesAtivo(ativos);
+    
+    let consulta = await consultarAtivosService(ativos);
+
+    resp.send(consulta)
+})
+
+servidor.delete("/filme", async (req, resp) => {
+    let id = Number(req.query.id)
+
+    let delecao = deletarFilmeId(id);
+
+    resp.send(delecao)
 })
 
 

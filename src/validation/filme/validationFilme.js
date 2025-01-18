@@ -1,5 +1,6 @@
 
 
+
 export function validacoesFilme(filme){
     if(!filme.nome)
         throw new Error ("Nome do filme obrigatório");
@@ -32,6 +33,13 @@ export function validacoesFilmeId(id){
 export function validacaoUnica(filmes){
     if (filmes.length == 0)
         throw new Error ('Filme não encontrado.');
+}
+
+export function validacaoNomeFilme(informacoes){
+
+    if(informacoes.length > 0){
+        throw new Error ('Nome já existe.');
+    }
 }
 
 

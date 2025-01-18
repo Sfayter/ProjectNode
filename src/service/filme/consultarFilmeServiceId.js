@@ -10,7 +10,5 @@ export default async function consultarFilmeServiceId(id){
 
     let filmeId = filmes[0];
 
-    
-
     return filmeId;
 }

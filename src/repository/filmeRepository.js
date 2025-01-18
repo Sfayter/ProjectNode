@@ -15,14 +15,16 @@ export async function inserirFilme(filme){
     return obterIdFilme;
 }
 
-export async function deletarFilme(filme){
+export async function deletarFilme(id){
     let deletarFilme = `
-        DELETE FROM dbfilmes WHERE id = ?
+        DELETE FROM tb_filme WHERE id_filme = ?
     `
 
-    let deletar = await con.query(deletarFilme[filme.id])
+    let requisicao = await con.query(deletarFilme, [id])
 
+    let informacao = requisicao[0];
 
+    return informacao;
     
 }
 
@@ -69,12 +71,25 @@ export async function consultarFilmesAtivo(ativos){
     
 
     let comando = `
-    select nm_filme, ds_sinopse, bt_disponivel from tb_filme where bt_disponivel ?
+    select nm_filme     nome, ds_sinopse        sinopse, bt_disponivel      disponibilidade from tb_filme where bt_disponivel = ?
     `
 
     let requisicao = await con.query(comando, [ativos]);
 
     let informacao = requisicao[0]
+
+    return informacao;
+}
+
+export async function consultarIgual(nome){
+
+    let comando = `
+        select nm_filme from tb_filme where nm_filme = ?;
+    `
+
+    let requisicao = await con.query(comando, [nome]);
+
+    let informacao = requisicao[0];
 
     return informacao;
 }

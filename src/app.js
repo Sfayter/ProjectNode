@@ -1,8 +1,4 @@
 import 'dotenv/config.js';
-<<<<<<< HEAD
-=======
-
->>>>>>> ded2dcd (Terceiro commit)
 import express from 'express';
 import cors from 'cors';
 import adicionarRotas from './rotas.js';

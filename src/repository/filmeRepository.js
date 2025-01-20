@@ -93,8 +93,6 @@ export async function consultarIgual(nome){
 
     return informacao;
 }
-<<<<<<< HEAD
-=======
 
 
 export async function alterarFilme(filme, id){
@@ -132,4 +130,3 @@ export async function alterarFilmeIMG(id, caminho){
 
     return linhasAfetadas;
 }
->>>>>>> ded2dcd (Terceiro commit)

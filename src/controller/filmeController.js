@@ -4,12 +4,9 @@ import consultarFilmeService from "../service/filme/consultarFilmeService.js";
 import consultarFilmeServiceId from "../service/filme/consultarFilmeServiceId.js";
 import consultarAtivosService from "../service/filme/consultarFilmeAtivosService.js";
 import deletarFilmeId from "../service/filme/deleteFilmeService.js";
-<<<<<<< HEAD
-=======
 import alterarFilmeService from "../service/filme/alterarFilmeService.js";
 import multer from "multer";
 import alterarFilmeImgService from "../service/filme/alterarFilmeImgService.js";
->>>>>>> ded2dcd (Terceiro commit)
 
 
 const servidor = Router();
@@ -77,8 +74,6 @@ servidor.delete("/filme", async (req, resp) => {
     resp.send(delecao)
 })
 
-<<<<<<< HEAD
-=======
 servidor.put("/filme/:id", async (req, resp) =>{
     try{
         let id = req.params.id;
@@ -105,6 +100,5 @@ servidor.put("/filme/:id/imagem", uploadImg.single('imagem'), async (req, resp) 
     resp.send();
 })
 
->>>>>>> ded2dcd (Terceiro commit)
 
 export default servidor;

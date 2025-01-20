@@ -1,8 +1,11 @@
 import mysql from "mysql2/promise";
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> ded2dcd (Terceiro commit)
 let con = await mysql.createConnection({
     host: process.env.HOST,
     user: process.env.USER,

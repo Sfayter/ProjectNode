@@ -93,3 +93,43 @@ export async function consultarIgual(nome){
 
     return informacao;
 }
+<<<<<<< HEAD
+=======
+
+
+export async function alterarFilme(filme, id){
+    let comando = `
+    UPDATE tb_filme SET
+    nm_filme = ?, 
+    ds_sinopse = ?, 
+    vl_avaliacao = ?, 
+    dt_lancamento = ?, 
+    bt_disponivel = ?
+    WHERE id_filme = ?;
+    `
+
+    let requisicao = await con.query(comando, [filme.nome, filme.sinopse, filme.avaliacao, filme.lancamento, filme.disponivel, id])
+
+    let informacao = requisicao[0]
+
+    let linhasAfetadas = informacao.affectedRows
+
+    return linhasAfetadas;
+}
+
+export async function alterarFilmeIMG(id, caminho){
+    let comando = `
+    UPDATE tb_filme
+    SET img_filme = ?
+    WHERE id_filme = ?
+    `
+
+    let requisicao = await con.query(comando, [caminho, id]);
+
+    let informacao = requisicao[0];
+
+    let linhasAfetadas = informacao.affectedRows;
+
+    return linhasAfetadas;
+}
+>>>>>>> ded2dcd (Terceiro commit)
